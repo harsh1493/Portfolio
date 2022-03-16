@@ -1,0 +1,43 @@
+
+@tailwind base;
+@tailwind components;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+.raju{
+    font-family: Comfortaa, cursive;
+}
+.raja{
+    font-family: 'Poppins', sans-serif;
+}
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+.wrapper{
+    background-color: rgb(14, 242, 250);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+
+}
+section{
+    scroll-snap-align: start;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.bar{
+    height: 2px;
+    width: 20px;
+    transition: width 0.2s;
+}
+.grow{
+    height: 4px;
+    width: 40px;
+    transition: width 0.2s;
+}
