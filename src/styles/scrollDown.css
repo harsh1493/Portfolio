@@ -1,8 +1,10 @@
 
 .icon-scroll,
 .icon-scroll:before{
-  position: absolute;
-  left: 50%
+  /* position: absolute; */
+  left: 50%;
+  position: fixed;
+  bottom: 15px;
 }
 
 .icon-scroll{
@@ -16,7 +18,7 @@
   width: 8px;
   height: 8px;
   background: rgb(7, 10, 4);
-  margin-left: -4px;
+  margin-left: 10px;
   border-radius: 4px;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;

@@ -1,35 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap';
 import AboutMe from './poppingText/AboutMe';
-import "../styles/glassCard.css";
-import "../styles/section1.css";
-const Section1 = () => {
-  const scrolly = useWindowPosition();
-  const text1 = useRef()
-  const expCard=useRef()
-  const cardData=useRef()
-  
-  const [doAnimate, setdoAnimate] = useState(false)
-  const [hasAnimated, setHasAnimated] = useState(false)
-  useEffect(() => {
-    if (scrolly >= 1300 && !doAnimate) {
-      setdoAnimate(true);
-    }
-    if (scrolly <= 1200) {
-      setdoAnimate(false);
-      setHasAnimated(false);
-    }
-  }, [scrolly, doAnimate])
-  useEffect(() => {
+import '../styles/glassCard.css';
+import '../styles/section1.css';
+import { useScrollTrigger } from '../hooks/useCommon';
 
-    if (doAnimate && !hasAnimated) {
-      gsap.fromTo(text1.current, { y: "70px", opacity: "0" }, { y: "0", opacity: "1", duration: 1, ease: "power5.in", delay: 0.5 });
-      gsap.fromTo(expCard.current, { x: "60px", opacity: "0" }, { x: "0", opacity: "1", duration: 0.5, ease: "power5.in", delay: 0.5 });
-       gsap.fromTo(cardData.current, { y: "70px", opacity: "0" }, { y: "0", opacity: "1", duration: 1, ease: "power5.in", delay: 1 }); 
-      setHasAnimated(true);
-      setdoAnimate(false)
+const Section1 = () => {
+  const text1 = useRef();
+  const expCard = useRef();
+  const cardData = useRef();
+  const { doAnimate, markAnimated } = useScrollTrigger(1300, 1200);
+
+  useEffect(() => {
+    if (doAnimate) {
+      gsap.fromTo(text1.current, { y: '70px', opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power5.in', delay: 0.5 });
+      gsap.fromTo(expCard.current, { x: '60px', opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'power5.in', delay: 0.5 });
+      gsap.fromTo(cardData.current, { y: '70px', opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power5.in', delay: 1 });
+      markAnimated();
     }
-  })
+  }, [doAnimate, markAnimated]);
 
   return (
     <>
@@ -40,40 +29,58 @@ const Section1 = () => {
             <AboutMe />
           </div>
           <div className='p pl-40'>
-            <div className="flex justify-between h-full w-full ">
-              <div ref={text1} className='text-black font-bold text-m ml-8' >
-                <p>
-                  For over 4 years I had many opportunities to work in a <br />
-                  vast spectrum of  <a href=""> web technologies </a>what let me gather<br />a significant
-                  amount of experience. <br /><br />
-                  Working for companies and individuals around the globe  I met <br />
-                  and learnt from amazing and ambitious people.
+            <div className="flex justify-between h-full w-full">
+            <div ref={text1} className='text-black font-bold text-m ml-8 sci-fi-text'>
+                <p className="sci-fi-paragraph">
+                  Senior Software Engineer with 5+ years of experience.<br />
+                  Specialized in building scalable, high-performance web applications.<br />
+                  Expertise in React.js, TypeScript, and micro-frontend architecture.<br />
+                  Strong backend integration using Node.js and Python.<br />
                 </p>
                 <br />
-                <p> I currently work remotely with   <a target="_blank" className='hover:text-pink-700' href="https://actonate.com/"> Actonate </a> being <br />
-                  open for new opportunities.</p>
+                <p className="sci-fi-paragraph">
+                  Led UI architecture initiatives and complex tool rewrites.<br />
+                  Rebuilt legacy systems using modern frameworks like JupyterLab.<br />
+                  Delivered cloud-native solutions deployed on AWS.<br />
+                  Implemented robust CI/CD pipelines for reliable releases.<br />
+                </p>
+                <br />
+                <p className="sci-fi-paragraph">
+                  Experience across analytics, IoT, and enterprise platforms.<br />
+                  Focused on performance optimization and clean architecture.<br />
+                  Designed reusable component systems for scale.<br />
+                  Mentored teams to ship production-grade software efficiently.<br />
+                </p>
               </div>
-              <div ref={expCard}  className='flex flex-col relative -top-32  w-1/3 p-5 mr-24 glass'>
+              <div ref={expCard} className='flex flex-col relative -top-32 w-1/3 p-5 mr-24 glass'>
                 <div className='flex'>
-                  <img class="rounded-full shadow-lg w-16 h-16 " src="/images/profilePic.jpeg" alt="avatar" />
-                  <div className=' pl-10 flex flex-col'>
+                  <img className="rounded-full shadow-lg w-16 h-16" src="/images/profilePic.jpeg" alt="avatar" />
+                  <div className='pl-10 flex flex-col'>
                     <span className='font text-xl'> Harsh Shrivastava </span>
-                    <span className='text-sm  text-gray-500 '>UI Developer</span>
+                    <span className='text-sm text-gray-500'>UI Developer</span>
                   </div>
                 </div>
                 <span className='text-l mt-10 font-semibold'>WORK EXPERIENCE</span>
-                <div ref={cardData} class="card-timeline">
-                  <div class="card-item" data-year="2022">
-                    <div class="card-item-title">Front-end Developer at <span>Actonate</span></div>
-                    <div class="card-item-desc">Built complex and responsive UI's in Reactjs.</div>
+                <div ref={cardData} className="card-timeline">
+                  <div className="card-item" data-year="2025">
+                    <div className="card-item-title">Senior Software Engineer at <span>Dell Technologies</span></div>
+                    <div className="card-item-desc">Starting as Senior Software Engineer this month.</div>
                   </div>
-                  <div class="card-item" data-year="2020">
-                    <div class="card-item-title">FullStack Developer at <span>Cogizant</span></div>
-                    <div class="card-item-desc">Developed UI components  in ReactJS and AngularJS, worked on .Net Technoloies.</div>
+                  <div className="card-item" data-year="2024">
+                    <div className="card-item-title">Senior Software Engineer at <span>GlobalLogic</span></div>
+                    <div className="card-item-desc">Led team of 3 developers for Alteryx Designer and RLDatix projects using React, TypeScript, AWS.</div>
                   </div>
-                  <div class="card-item" data-year="2019">
-                    <div class="card-item-title"> FullStack Internship at <span>Cogizant</span></div>
-                    <div class="card-item-desc">Learnt basics of ReactJS and .Net Technologies.</div>
+                  <div className="card-item" data-year="2023">
+                    <div className="card-item-title">Software Engineer at <span>TCS</span></div>
+                    <div className="card-item-desc">Built Grafana visualization platform and manufacturing systems for Honeywell using React, Python, AWS.</div>
+                  </div>
+                  <div className="card-item" data-year="2022">
+                    <div className="card-item-title">Software Engineer at <span>Actonate</span></div>
+                    <div className="card-item-desc">Developed ValQ 3.0 Power BI custom visual using React, TypeScript, Node.js and microservices.</div>
+                  </div>
+                  <div className="card-item" data-year="2020">
+                    <div className="card-item-title">Software Engineer at <span>Cognizant</span></div>
+                    <div className="card-item-desc">Built IoT Device Management System using Angular 13, .NET, AWS for Fresenius Kabi.</div>
                   </div>
                 </div>
               </div>
@@ -82,23 +89,7 @@ const Section1 = () => {
         </div>
       </div>
     </>
-  )
-}
-
-export default Section1
-
-
-export const useWindowPosition = () => {
-  const [position, setPosition] = useState(0);
-
-  useEffect(() => {
-    const setFromEvent = (e) => setPosition(window.scrollY);
-    window.addEventListener("scroll", setFromEvent);
-
-    return () => {
-      window.removeEventListener("scroll", setFromEvent);
-    };
-  }, []);
-
-  return position;
+  );
 };
+
+export default Section1;

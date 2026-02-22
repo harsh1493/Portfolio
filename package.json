@@ -9,23 +9,24 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@react-spring/three": "^9.4.3",
-    "@react-three/cannon": "^4.9.0",
-    "@react-three/drei": "7.16.3",
-    "@react-three/fiber": "7.0.16",
+    "@react-spring/three": "^9.7.3",
+    "@react-three/cannon": "^6.6.0",
+    "@react-three/drei": "^9.92.7",
+    "@react-three/fiber": "^8.15.12",
+    "@react-three/postprocessing": "^2.15.11",
+    "ajv": "^8.18.0",
     "emailjs-com": "^3.2.0",
-    "gsap": "^3.9.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-scripts": "4.0.3",
-    "react-scroll": "^1.8.5",
-    "react-spring": "^9.4.3",
-    "react-use-gesture": "^5.0.0",
-    "sass": "^1.49.9",
-    "three": "^0.137.5"
+    "gsap": "^3.12.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
+    "react-spring": "^9.7.3",
+    "sass": "^1.69.7",
+    "three": "^0.160.0"
   },
   "devDependencies": {
-    "typescript": "3.3.3"
+    "typescript": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",

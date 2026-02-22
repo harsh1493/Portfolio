@@ -25,7 +25,7 @@ const Navbar = () => {
         gsap.fromTo(cover.current, { height: "100vh" }, { height: "0vh", duration: 1.5, ease: "power3.in" });
         if (scrollY >= 200) {
             setdoAnimate(true);
-            console.log(scrollY, doAnimate);
+            console.log('section 1',scrollY, doAnimate);
             $('#section1 a').trigger('click');
         }
         if (scrollY < 200) {

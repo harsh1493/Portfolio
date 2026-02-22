@@ -130,9 +130,10 @@
   right: -80px;
  padding-bottom: 50px;
   font-size: 23rem;
-  color: rgb(225, 177, 177);
+  color: rgb(205 197 197 / 66%) !important;
   font-weight: 600  ;
   height: 70vh;
+  z-index: 0;
 }
 /* .html::after{
   content: '</html>';

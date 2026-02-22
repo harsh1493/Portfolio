@@ -5,9 +5,10 @@
     left: -80px;
    padding-bottom: 50px;
     font-size: 23rem;
-    color: rgb(225, 177, 177);
+    color: rgb(205 197 197 / 66%) !important;
     font-weight: 600  ;
     height: 70vh;
+    z-index: 0;
   }
   .bg2{
     position:absolute;
@@ -17,9 +18,10 @@
     bottom: 1200px;
    padding-bottom: 50px;
     font-size: 23rem;
-    color: rgb(225, 177, 177);
+    color: rgb(205 197 197 / 66%) !important;
     font-weight: 600  ;
     height: 70vh;
+    z-index: 0;
   }
   .bg3{
     position:absolute;
@@ -27,9 +29,10 @@
     bottom: 0px;
    padding-bottom: 50px;
     font-size: 23rem;
-    color: rgb(225, 177, 177);
+    color: rgb(205 197 197 / 66%) !important;
     font-weight: 600  ;
-    height: 70vh;
+    height: 70vh; 
+    z-index: 0;
   }
   
 .deck > div {
